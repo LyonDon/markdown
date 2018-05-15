@@ -119,3 +119,26 @@ urllib2和urllib是python中的两个内置模块，要实现HTTP功能，实现
 *分组*
 *反义*
 *后向引用*
+
+###python与正则
+python通过re模块提供对正则表达式的支持
+使用re的一般步骤：
+
+1.	将正则表达式的字符串形式编译为pattern实例
+2.	使用pattern实例处理文本并获取匹配结果
+3.	使用Match实例获得信息
+
+主要用到的方法：
+
+re.copile(string[,flag])
+re.match(pattern,string[,flags])
+>从输入参数string的开头开始，尝试匹配pattern，一直向后匹配。遇到无法匹配的字符或者到达string的末尾，立即返回none，繁殖获取匹配的结果
+
+re.search(pattern,string[,flsgs])
+>与match很相似，区别在于后者只从string的开始位置匹配，前者会扫描整个string查找匹配
+
+re.split(psttern,string[,maxsplit])
+re.findall(pattern,string[,flags])
+re.finditer(pattern.string,[flags]}
+re.sub(pattern.repl,string[,count])
+re.subn(pattern,repl,string[,count])
