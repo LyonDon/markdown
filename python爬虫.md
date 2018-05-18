@@ -144,3 +144,56 @@ re.sub(pattern.repl,string[,count])
 re.subn(pattern,repl,string[,count])
 
 ##强大的BeautifulSoup
+
+#数据存储（无数据库版）
+
+##HTML正文抽取
+对HTML正文的抽取存储，主要将HTML正文存储为两种格式：JSON和CSV
+
+###存储为JSON
+python对json文件的操作分为编码和解码，通过json模块来实现
+
+*	编码过程：python对象转化为json对象（通过dump（将json文件通过fp文件流写入文件中）和dumps）
+*	*	>FILE:系统定义的一种结构类型 的名称。
+		FILE *fp:变量类型声明。声明 fp 是 FILE型指针，用于指向 FILE类型 （文件结构）。
+ 		文件流 :排成一队，有先后次序的 输入（或输出）一串数据，驻留并通过 输入输出缓冲区，进出程序。如同水流般地流入或流出。它来自文件或写入文件。
+
+*	解码过程：json对象转化为python对象：（通过load和loads：类比dump和dumps）
+
+python的一些基本类型通过编码之后，tuple类型就转化成了list类型；再将其转回python对象时，list类型并没有变回tuple类型
+
+###存储为CSV
+逗号分隔值
+
+*	CSV文件实例
+			ID，Uesrname，Password，age，country
+            1001，"harry","harry_pass",20,"China"
+            1002,"Coj","Coj_pass",22,"America"
+
+python使用csv库读取CSV文件
+**将csv文件实例内容写为.csv文件，需要用到Writer对象
+.csv文件的读取需要用到reader对象**
+存储CSV文件时，需要统一存储数据的类型。使用encode（'tf-8'）的作用是将title、real_title,href,date变量类型统一为str
+
+##多媒体文件抽取
+urllib模块中的urlretrieve()函数：直接将远程任务下载到本地
+
+##Email提醒
+Python对SMTP的支持有smtplib和email两个模块，email负责构造邮件，smtplib负责发送邮件
+
+###MIME类型
+>浏览器中显示的内容有 HTML、有 XML、有 GIF、还有 Flash。浏览器通过MIME tpye（多用途Internet邮件扩展（MIME）类型 ）区分它们，决定什么内容用什么形式来显示
+>>浏览器通常使用MIME类型（而不是文件扩展名）来确定如何处理文档；因此服务器设置正确以将正确的MIME类型附加到响应对象的头部是非常重要的
+>####语法
+>>>1.	通用结构
+type/subtype
+MIME的组成结构非常简单；由类型与子类型两个字符串中间用'/'分隔而组成。并不允许空格存在。type 表示可以被分为复数子类的独立类型。subtype 表示细分后的每个类型。
+**MIME类型对大小写不敏感，但是传统写法都是小写**
+>>>2.	独立类型
+>>>![独立类型](https://github.com/LyonDon/python-learning/raw/master/python-reptile/photo/%E5%9B%BE%E5%83%8F4.png)
+
+>>>3.	Multipart类型
+>>>Multipart 类型表示细分领域的文件类型的种类，经常对应不同的 MIME 类型。这是复合文件的一种表现方式。对于 multipart/form-data 的例外部分，可以使用HTML Forms 和 POST 方法，此外 multipart/byteranges使用状态码206 Partial Content来发送整个文件的子集，而HTTP不能处理的复合文件使用一个特殊的方式：将信息直接传送给浏览器
+
+>>###重要的MIME类型
+>>application/octet-stream、text/plain、text/css、text/html、图片类型、音频与视频类型、multipart/form-data、multipart/byteranges
