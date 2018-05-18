@@ -142,3 +142,5 @@ re.findall(pattern,string[,flags])
 re.finditer(pattern.string,[flags]}
 re.sub(pattern.repl,string[,count])
 re.subn(pattern,repl,string[,count])
+
+##强大的BeautifulSoup
