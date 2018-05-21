@@ -197,3 +197,38 @@ MIME的组成结构非常简单；由类型与子类型两个字符串中间用'
 
 >>###重要的MIME类型
 >>application/octet-stream、text/plain、text/css、text/html、图片类型、音频与视频类型、multipart/form-data、multipart/byteranges
+
+##实战项目：基础爬虫
+###基础爬虫框架
+*主要包括五大模块*：爬虫调度器，URL管理器，HTML下载器，HTML解析器，数据存储器
+
+*	####URL管理器
+包括已爬取的URL集合和未爬取的URL集合以及一些接口
+链接去重方法:
+
+	*	内存去重（set）
+	*	关系数据库去重
+	*	缓存数据库去重
+	
+    接口：
+    		has_new_url()
+            add_new_url(url),ad_new_urls(urls)
+            get_new_url()
+			new_url_size()
+            old_url_size()
+
+*	####HTML下载器
+用来下载网页
+需要用到request模块，实现一个接口：download（url）
+
+*	####HTML解析器
+需要解析的部分主要为提取相关词条页面的URL和提取当前词条的标题和摘要信息
+
+
+
+
+
+
+
+
+
