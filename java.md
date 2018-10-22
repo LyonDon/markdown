@@ -1177,7 +1177,12 @@ sbf.delete(3,5);//3代表开始位置的下标，5代表结束位置的下标（
 
 *	构造方法没有返回值
 
+#### 构造方法和成员方法的区别
 
+格式区别| 构造方法和类名相同，并且没有返回类型，也没有返回值| 普通成员方法可以任意起名，必须有返回类型，可以没有返回值
+--|--|--
+作用区别|构造方法用于创建对象，并初始化值|普通成员方法用于完成特定功能
+调用区别|构造方法在创建对象时调用，一个对象的建立只调用一次构造方法|成员方法由创建好的对象调用，可以多次调用
 
 #### 私有构造方法
 
@@ -2006,56 +2011,34 @@ add()/roll():添加时间量，前者会自动向前进位，后者不会进位
 集合类总共有两大接口：
 
 *	Collection接口：元素集合
-
 	*	List接口：有序元素集合
-
 		*	ArrayList
-
 		*	LinkedList
-
 	*	Set接口：无序元素集合
-
 		*	HashSet
 
 *	Map：键值对集合
 
 	*	HashMap
-
 		*	HashMap性能更好
-
 	*	HashTable
-
 		*	HashTable是线程安全的
-
 	*	Treemap
-
 		*	树状键值对存放有序
-
-
 
 #### 集合类的继承关系
 
-
-
 ![](F:\PotPlayer\Capture\9.2 集合的概述.mp4_20180824_094711.675.jpg)
-
-
 
 ### Collection接口
 
-方法 
+方法
 
 *	isEmpty()
-
 *	size()
-
 *	add()
-
 *	remove()
-
 *	iterator():遍历集合中的元素并依次取出
-
-
 
 以上这些方法collection的所有子类都可以直接使用
 
@@ -2066,30 +2049,20 @@ add()/roll():添加时间量，前者会自动向前进位，后者不会进位
 创建List对象
 
 ~~~java
-
 List<E> list=new ArrayList<E>()
-
 List<E> list=new LinkedList<E>()//<E>是泛型（可以省略）
-
 ~~~
 
 方法
 
 *	add()
-
 *	remove()
-
 *	get()
-
 *	set()
-
-
 
 *创建对象时，一般使用类本身或者子类进行实例化*
 
 一个特点就是存在索引，可以通过索引查询元素
-
-
 
 ### Iterator迭代器
 
@@ -2104,46 +2077,27 @@ Iterator<E>i=list.iterator();//list是指collection的任意子类
 方法
 
 hasnext():如果有可迭代的元素，则返回true
-
 next():返回迭代的下一个元素，object值
-
 特点在于可以遍历集合中的所有元素，并且执行效率很高
-
-
 
 ### set集合（set接口）
 
 *重复的元素不能被添加到set集合中*
 
 *	HashSet
-
 	*	HashSet可以添加null值
-
 *	TreeSet
-
 	*	TreeSet不能添加null值
-
 	*	~~~java
-
 	Set<E> set=new TreeSet<E>();
-
 		~~~
-
-
 
 方法
 
-add()
-
-
-
+add()：向集合中添加元素，若集合确实被改变则返回true，否则返回false
 remove()
-
 contains(Object o)
-
-iterator()
-
-
+iterator()（迭代器）：返回一个实现iterator接口的对象
 
 ### HashSet
 
@@ -2154,13 +2108,9 @@ Set<E>set=new HashSet<E>();
 ~~~
 
 HashSet存储的对象应该重写hashCode()和equals()两个方法
-
 排列顺序根据Hash值进行分配
-
 *当一个元素添加到集合之后，不要修改可能会让其Hash值改变的属性*
-
 HashSet是根据hash值来存放元素的
-
 同一个hash地址可以存放多个不同的对象
 
 
@@ -2168,14 +2118,9 @@ HashSet是根据hash值来存放元素的
 ### Map集合
 
 键值映射
-
 使用Key映射Value：
 
-
-
 ![](F:\PotPlayer\Capture\9.9map集合.jpg)
-
-
 
 ~~~java
 
@@ -2230,23 +2175,16 @@ public enum 枚举类名{//enum代表一个枚举类型，类似class，interfac
 *	values():可将枚举类型的成员以数组的形式返回
 
 	*	~~~java
-
 	Constants enumArray[]=Constants.values();
-
 		~~~
 
 *	valueof():可将普通字符串转换为枚举实例
 
 	*	~~~java
-
 	public enum Constants{
-
     	Constants_A;
-
     }
-
     Constants c=Constants.valueOf("constants_A")//将字符串转换为枚举类型。创建的值一定要真实存在
-
 		~~~
 
 *	compareTo()：比较两个枚举对象在定义时的顺序
