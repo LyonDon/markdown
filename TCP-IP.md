@@ -56,10 +56,12 @@ MAC和IP地址都具有唯一性，但只有IP地址具有层次性
 	*	WWW（HTTP，HTML），Email，FTP,TELNET,SSH
 
 在下层的角度看，从上一层收到的包全部被认为是本层的数据
-![](C:\Users\DONG\Desktop\markdown\TCP-IP\IMG_20180705_164511.jpg)
+
+![IMG_20180705_164511.jpg](.\TCP-IP\IMG_20180705_164511.jpg)
 
 每个包首部至少包含：发送端和接收端地址以及上一层的协议类型
-![](C:\Users\DONG\Desktop\markdown\TCP-IP\IMG_20180705_163036.jpg)
+
+![IMG_20180705_163036.jpg](.\TCP-IP\IMG_20180705_163036.jpg)
 
 ****
 # 数据链路
