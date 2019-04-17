@@ -49,7 +49,7 @@ SSL会比一般的HTTP通信慢2到10倍，主要原因在于通信慢以及消�
 
 ### HTML（超文本标记语言）
 是构建web页面的主要语言
-~~~xml
+~~~html
 //conference
 <html>
 <head>
